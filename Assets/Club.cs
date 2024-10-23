@@ -39,6 +39,9 @@ public class Club : MonoBehaviour
 
 
         acceptingInputs = false;
+        desiredAngle = 0f;
+        transform.localRotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);
+        
 
         Vector3 hitDirection = hitBall.transform.position - trigger.transform.position;
         hitDirection.Normalize();
@@ -82,7 +85,7 @@ public class Club : MonoBehaviour
 
     void SetStrength()
     {
-        str = highestAngleThisSwing;
+        str = (highestAngleThisSwing + 10)/3;
     }
 
     void GetInput()
@@ -111,11 +114,11 @@ public class Club : MonoBehaviour
 
                 if (Input.GetKey(KeyCode.A))
                 {
-                    transform.RotateAround(hitBall.transform.position, vertAxis, rotationSpeed * Time.deltaTime);
+                    transform.RotateAround(hitBall.transform.position, vertAxis, rotationSpeed/4 * Time.deltaTime);
                 }
                 if (Input.GetKey(KeyCode.D))
                 {
-                    transform.RotateAround(hitBall.transform.position, vertAxis, -rotationSpeed * Time.deltaTime);
+                    transform.RotateAround(hitBall.transform.position, vertAxis, -rotationSpeed/4 * Time.deltaTime);
                 }
             }
 
