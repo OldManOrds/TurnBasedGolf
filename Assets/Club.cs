@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Club : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Club : MonoBehaviour
     Vector3 defaultClubPos;
     bool acceptingInputs = true;
     float highestAngleThisSwing = 0f;
+    public Slider forceUI;
 
 
 
