@@ -85,7 +85,7 @@ public class Club : MonoBehaviour
 
     void SetStrength()
     {
-        str = (highestAngleThisSwing + 10)/3;
+        str = (highestAngleThisSwing + 10)/2.5f;
     }
 
     void GetInput()
