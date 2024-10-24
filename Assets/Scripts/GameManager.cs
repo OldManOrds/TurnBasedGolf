@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public Image forceBar;
-    public Club club;
+    //public Image forceBar;
+    //public Club club;
     void Awake()
     {
         if (instance != null && instance != this)
@@ -32,8 +33,22 @@ public class GameManager : MonoBehaviour
     {
         
     }
-    void ManageForce()
+
+    public void Reset()
     {
-        forceBar.fillAmount = club.str;
+        SceneManager.LoadScene(1);
     }
+    public void Quit()
+    {
+        Application.Quit();
+    }
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(2);
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 }

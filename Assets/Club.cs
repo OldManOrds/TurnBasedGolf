@@ -22,6 +22,7 @@ public class Club : MonoBehaviour
 
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -127,8 +128,22 @@ public class Club : MonoBehaviour
         }
 
     }
-
+    public void Slider()
+    {
+        forceUI.value = str;
+    }
+    public void ResetGauge()
+    {
+        str = 0f;
+        forceUI.value = 0f;
+    }
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1.5f);
+        ResetGauge();
+    }
 }
+
 
 public class Putter : Club
 {
