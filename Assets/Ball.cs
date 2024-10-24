@@ -43,7 +43,19 @@ public class Ball : MonoBehaviour
         }
 
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Hole"))
+        {
+            // logic to send balland club to next course
+        }
+        if (other.CompareTag("LastHole"))
+        {
+            Debug.Log("HOLE");
+            GameManager.Instance.NextLevel();
+        }
 
+    }
     public void Hit()
     {
         rb.isKinematic = false;
