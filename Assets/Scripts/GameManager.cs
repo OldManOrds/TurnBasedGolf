@@ -14,13 +14,18 @@ public class GameManager : MonoBehaviour
     //public Image forceBar;
     //public Club club;
     public static bool timeIsRunning = true;
-    public static float timeRemaining = 0;
+    public static float timeTaken = 0;
     public TMP_Text timeText;
+    public TextMeshProUGUI scoreText;
     public TMP_Text gameOverTimeText;
     public GameObject startScreen;
     public GameObject level;
     public GameObject gameOver;
     public GameObject timer;
+    public GameObject score;
+    private Vector3 timerStartPosition;
+    private Vector3 scoreStartPosition;
+    public int playerStrokes = 0;
     void Awake()
     {
         if (Instance == null)
@@ -49,6 +54,10 @@ public class GameManager : MonoBehaviour
         //startScreen.SetActive(false);
         Time.timeScale = 0;
         timer.GetComponent<TextMeshProUGUI>().enabled = false;
+        score.GetComponent<TextMeshProUGUI>().enabled = false;
+        timerStartPosition = timer.transform.position;
+        scoreStartPosition = score.transform.position;
+        
     }
 
     // Update is called once per frame
@@ -56,12 +65,13 @@ public class GameManager : MonoBehaviour
     {
         if (timeIsRunning)
         {
-            if (timeRemaining >= 0)
+            if (timeTaken >= 0)
             {
-                timeRemaining += Time.deltaTime;
-                DisplayTime(timeRemaining);
+                timeTaken += Time.deltaTime;
+                DisplayTime(timeTaken);
             }
         }
+        scoreText.text = "Strokes: " + playerStrokes;
         if(Input.GetKeyDown(KeyCode.R)) {NextLevel(); }
     }
     void DisplayTime(float timeDisplay)
@@ -77,6 +87,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(1);
         Time.timeScale = 1;
         timer.GetComponent<TextMeshProUGUI>().enabled = true;
+        score.GetComponent<TextMeshProUGUI>().enabled = true;
+        timer.transform.position = timerStartPosition;
+        score.transform.position = scoreStartPosition;
+        playerStrokes = 0;
+        timeTaken = 0f;
         level.SetActive(true);
         gameOver.SetActive(false);
         startScreen.SetActive(false);
@@ -94,6 +109,7 @@ public class GameManager : MonoBehaviour
         level.SetActive(false);
         gameOver.SetActive(true);
         timer.transform.position = new Vector3(550, 250,0);
+        score.transform.position = new Vector3(450, 200, 0);
     }
     public void MainMenu()
     {
@@ -102,6 +118,10 @@ public class GameManager : MonoBehaviour
         startScreen.SetActive(true);
         level.SetActive(false);
         gameOver.SetActive(false);
+    }
+    public void AddScore(int strokes)
+    {
+        playerStrokes += strokes;
     }
 
 }

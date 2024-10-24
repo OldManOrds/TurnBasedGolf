@@ -38,6 +38,7 @@ public class Ball : MonoBehaviour
             transform.rotation = Quaternion.identity;
 
             club.ResetClub();
+            
             Debug.Log("stopped ball");
         }
 

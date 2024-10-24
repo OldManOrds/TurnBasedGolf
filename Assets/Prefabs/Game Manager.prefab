@@ -32,6 +32,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1329966468032974668}
+  - {fileID: 5476608630944365362}
   - {fileID: 3536526259334054614}
   - {fileID: 7615050890942580501}
   - {fileID: 5671454083349191558}
@@ -438,11 +439,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7615050890942580501}
+  m_Father: {fileID: 917242515514934505}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 62.57007, y: -210.5}
+  m_AnchoredPosition: {x: 330.00006, y: -200}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6032157155582860172
@@ -833,7 +834,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5476608630944365362}
   - {fileID: 1310170442904339650}
   m_Father: {fileID: 917242515514934505}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2525,7 +2525,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeText: {fileID: 5577368672031596174}
+  scoreText: {fileID: 0}
   gameOverTimeText: {fileID: 0}
   startScreen: {fileID: 8032322236314698746}
   level: {fileID: 3281670222840247112}
   gameOver: {fileID: 3248643519773074508}
+  timer: {fileID: 0}
+  score: {fileID: 0}
+  playerStrokes: 0

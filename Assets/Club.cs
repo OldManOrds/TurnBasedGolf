@@ -55,6 +55,7 @@ public class Club : MonoBehaviour
 
         trigger.gameObject.SetActive(false);
         hitBall.Hit();
+        GameManager.Instance.AddScore(1);
 
 
 
