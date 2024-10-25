@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
     public static float timeTaken = 0;
     public TMP_Text timeText;
     public TextMeshProUGUI scoreText;
-    public TMP_Text gameOverTimeText;
     public GameObject startScreen;
     public GameObject level;
     public GameObject gameOver;
@@ -80,7 +79,6 @@ public class GameManager : MonoBehaviour
         float minutes = Mathf.FloorToInt(timeDisplay / 60);
         float seconds = Mathf.FloorToInt(timeDisplay % 60);
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-        //gameOverTimeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
     public void Reset()
     {
@@ -104,7 +102,6 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(2);
         Time.timeScale = 0;
-        gameOverTimeText = timeText;
         startScreen.SetActive(false);
         level.SetActive(false);
         gameOver.SetActive(true);
