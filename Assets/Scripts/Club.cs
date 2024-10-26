@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class Club : MonoBehaviour
 {
     public ClubTrigger trigger;
-    public Ball hitBall;
+    public GameObject ball;
+    //public Ball hitBall;
     public float str = 10f;
     float maxAngle = 60f;
     float minAngle = -20f;
@@ -29,10 +30,13 @@ public class Club : MonoBehaviour
         if (trigger == null)
             trigger = GetComponentInChildren<ClubTrigger>();
 
-        if (hitBall == null)
-            hitBall = FindObjectOfType<Ball>();
+        if (ball == null)
+        {
+            ball = FindObjectOfType<Ball>().gameObject;
+            
+        }
 
-        defaultClubPos = transform.position - hitBall.transform.position;
+        defaultClubPos = transform.position - ball.transform.position;
 
     }
 
@@ -46,15 +50,31 @@ public class Club : MonoBehaviour
         transform.localRotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);
         
 
-        Vector3 hitDirection = hitBall.transform.position - trigger.transform.position;
+        Vector3 hitDirection = ball.transform.position - trigger.transform.position;
         hitDirection.Normalize();
-        hitBall.SetDirection(hitDirection);
+        
+        if (ball.GetComponent<Ball>())
+            ball.GetComponent<Ball>().SetDirection(hitDirection);
+
+        if (ball.GetComponent<ChangeBallHue>())
+            ball.GetComponent<ChangeBallHue>().SetDirection(hitDirection);
 
         float hitMagnitude = str;
-        hitBall.SetMagnitude(hitMagnitude);
+
+        if (ball.GetComponent<Ball>())
+            ball.GetComponent<Ball>().SetMagnitude(hitMagnitude);
+
+        if (ball.GetComponent<ChangeBallHue>())
+            ball.GetComponent<ChangeBallHue>().SetMagnitude(hitMagnitude);
 
         trigger.gameObject.SetActive(false);
-        hitBall.Hit();
+
+        if (ball.GetComponent<Ball>())
+            ball.GetComponent<Ball>().Hit();
+
+        if (ball.GetComponent<ChangeBallHue>())
+            ball.GetComponent<ChangeBallHue>().Hit();
+
         GameManager.Instance.AddScore(1);
 
 
@@ -68,7 +88,7 @@ public class Club : MonoBehaviour
 
     public void ResetClub()
     {
-        transform.position = hitBall.transform.position + defaultClubPos;
+        transform.position = ball.transform.position + defaultClubPos;
         transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
         highestAngleThisSwing = 0f;
         acceptingInputs = true;
@@ -118,11 +138,34 @@ public class Club : MonoBehaviour
 
                 if (Input.GetKey(KeyCode.A))
                 {
-                    transform.RotateAround(hitBall.transform.position, vertAxis, rotationSpeed/4 * Time.deltaTime);
+                    transform.RotateAround(ball.transform.position, vertAxis, rotationSpeed/4 * Time.deltaTime);
                 }
                 if (Input.GetKey(KeyCode.D))
                 {
-                    transform.RotateAround(hitBall.transform.position, vertAxis, -rotationSpeed/4 * Time.deltaTime);
+                    transform.RotateAround(ball.transform.position, vertAxis, -rotationSpeed/4 * Time.deltaTime);
+                }
+            }
+
+            //hue shifter input
+            if(Input.GetKey(KeyCode.B))
+            {
+                if (ball.GetComponent<Ball>().enabled)
+                {
+                    if (ball.GetComponent<ChangeBallHue>() == null) 
+                    { 
+                        ball.AddComponent<ChangeBallHue>();
+                    }
+                    else 
+                    { 
+                        ball.GetComponent<ChangeBallHue>().enabled = true; 
+                    }
+                    
+                    ball.GetComponent<Ball>().enabled = false;
+                }
+                else
+                {
+                    ball.GetComponent<Ball>().enabled = true;
+                    ball.GetComponent<ChangeBallHue>().enabled = false;
                 }
             }
 

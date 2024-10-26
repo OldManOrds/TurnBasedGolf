@@ -9,10 +9,18 @@ public class Ball : MonoBehaviour
     Vector3 Direction;
     float Magnitude;
     public float stoppingVel = .05f;
+    public Material mat;
+    public bool hueShift = false;
+    public Color nextColor;
+    public float hueShiftRate = .0003f;
+    
+     
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        hueShift = false;
+
         if (rb == null)
         {
             rb = GetComponent<Rigidbody>();
@@ -20,14 +28,29 @@ public class Ball : MonoBehaviour
 
         if(club == null)
             club = FindAnyObjectByType<Club>();
+
+        if(mat == null)
+            mat = GetComponent<Material>();
+        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
+        if (hueShift)
+        {
+            if (mat == null)
+                mat = gameObject.GetComponent<MeshRenderer>().material;
 
+            nextColor = mat.color;
+            Color.RGBToHSV(nextColor, out float Hue, out float Sat, out float Val);
+            Hue += hueShiftRate;
+           
+            nextColor = Color.HSVToRGB(Hue, Sat, Val);
+            mat.color = nextColor;
+        }
+    }
     private void FixedUpdate()
     {
         if(rb.velocity.magnitude < stoppingVel && rb.isKinematic == false)
@@ -76,19 +99,13 @@ public class Ball : MonoBehaviour
         Magnitude = desiredMagnitude;
     }
 
-}
-
-public class GolfBall : Ball
-{
 
 }
 
-public class BaseballBall : Ball
+public class ChangeBallHue : Ball
 {
-
-}
-
-public class TennisBall : Ball
-{
-
+    public void Start()
+    {
+        hueShift = true;
+    }
 }

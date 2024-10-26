@@ -4451,7 +4451,7 @@ PrefabInstance:
     - target: {fileID: 2672120413690810888, guid: 583fb6e99848e0c4e89fcfc96746857e,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: -7.01
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 2672120413690810888, guid: 583fb6e99848e0c4e89fcfc96746857e,
         type: 3}
@@ -4462,6 +4462,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -5.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 2672120413690810888, guid: 583fb6e99848e0c4e89fcfc96746857e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2875357389730314014, guid: 583fb6e99848e0c4e89fcfc96746857e,
         type: 3}
@@ -4481,7 +4486,7 @@ PrefabInstance:
     - target: {fileID: 4665684350384680874, guid: 583fb6e99848e0c4e89fcfc96746857e,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 2648
+      value: 2651
       objectReference: {fileID: 0}
     - target: {fileID: 5164965821748480971, guid: 583fb6e99848e0c4e89fcfc96746857e,
         type: 3}
@@ -4506,7 +4511,7 @@ PrefabInstance:
     - target: {fileID: 5164965821748480971, guid: 583fb6e99848e0c4e89fcfc96746857e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.75
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5819117130477521755, guid: 583fb6e99848e0c4e89fcfc96746857e,
         type: 3}
@@ -4531,7 +4536,7 @@ PrefabInstance:
     - target: {fileID: 7410437004137079393, guid: 583fb6e99848e0c4e89fcfc96746857e,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 2912
+      value: 2915
       objectReference: {fileID: 0}
     - target: {fileID: 7475551708035713076, guid: 583fb6e99848e0c4e89fcfc96746857e,
         type: 3}
@@ -4596,7 +4601,7 @@ PrefabInstance:
     - target: {fileID: 8170739879130033477, guid: 583fb6e99848e0c4e89fcfc96746857e,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 2930
+      value: 2933
       objectReference: {fileID: 0}
     - target: {fileID: 8268312322800300597, guid: 583fb6e99848e0c4e89fcfc96746857e,
         type: 3}
@@ -4608,6 +4613,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3016515648593043861, guid: 583fb6e99848e0c4e89fcfc96746857e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 8607709678026247217, guid: 583fb6e99848e0c4e89fcfc96746857e,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
