@@ -14,7 +14,7 @@ public class Inventory : MonoBehaviour
     {
         Gem.OnGemCollected += Add;
     }
-    private void OnDisnable()
+    private void OnDisable()
     {
         Gem.OnGemCollected -= Add;
     }

@@ -9,7 +9,6 @@ public class Ball : MonoBehaviour
     Vector3 Direction;
     float Magnitude;
     public float stoppingVel = .05f;
-    //public SpawnManager spawnManager;
 
     // Start is called before the first frame update
     void Start()

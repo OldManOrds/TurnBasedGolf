@@ -19,10 +19,12 @@ public class GameManager : MonoBehaviour
     public TMP_Text timeText;
     public TextMeshProUGUI scoreText;
     public GameObject startScreen;
-    public GameObject level;
+    //public GameObject level;
     public GameObject gameOver;
+    public GameObject InventoryUI;
     public GameObject timer;
     public GameObject score;
+    public Inventory inventory;
     private Vector3 timerStartPosition;
     private Vector3 scoreStartPosition;
     public int playerStrokes = 0;
@@ -52,8 +54,9 @@ public class GameManager : MonoBehaviour
         }
 
 
-        level.SetActive(false);
+        //level.SetActive(false);
         gameOver.SetActive(false);
+        InventoryUI.SetActive(false);
         //startScreen.SetActive(false);
         Time.timeScale = 0;
         timer.GetComponent<TextMeshProUGUI>().enabled = false;
@@ -94,7 +97,10 @@ public class GameManager : MonoBehaviour
         score.transform.position = scoreStartPosition;
         playerStrokes = 0;
         timeTaken = 0f;
-        level.SetActive(true);
+        //inventory.Remove();
+        //level.SetActive(true);
+        InventoryUI.SetActive(false);
+        InventoryUI.SetActive(true);
         gameOver.SetActive(false);
         startScreen.SetActive(false);
     }
@@ -107,8 +113,9 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         Time.timeScale = 0;
         startScreen.SetActive(false);
-        level.SetActive(false);
+        //level.SetActive(false);
         gameOver.SetActive(true);
+        InventoryUI.SetActive(true);
         timer.transform.position = new Vector3(650, 350,0);
         score.transform.position = new Vector3(600, 300, 0);
     }
@@ -128,7 +135,8 @@ public class GameManager : MonoBehaviour
         score.transform.position = scoreStartPosition;
         //playerStrokes = 0;
         //timeTaken = 0f;
-        level.SetActive(true);
+        //level.SetActive(true);
+        InventoryUI.SetActive(true);
         gameOver.SetActive(false);
         startScreen.SetActive(false);
     }
@@ -141,7 +149,8 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
         Time.timeScale = 0;
         startScreen.SetActive(true);
-        level.SetActive(false);
+        //level.SetActive(false);
+        InventoryUI.SetActive(false);
         gameOver.SetActive(false);
     }
     public void AddScore(int strokes)
