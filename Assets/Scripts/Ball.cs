@@ -49,8 +49,6 @@ public class Ball : MonoBehaviour
         if (other.CompareTag("Hole"))
         {
             GameManager.Instance.NextLevel();
-            //stoppingVel = 0f;
-            // logic to send balland club to next course
         }
         if (other.CompareTag("LastHole"))
         {
