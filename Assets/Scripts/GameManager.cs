@@ -109,8 +109,8 @@ public class GameManager : MonoBehaviour
         startScreen.SetActive(false);
         level.SetActive(false);
         gameOver.SetActive(true);
-        timer.transform.position = new Vector3(550, 250,0);
-        score.transform.position = new Vector3(450, 200, 0);
+        timer.transform.position = new Vector3(650, 350,0);
+        score.transform.position = new Vector3(600, 300, 0);
     }
     public void StartTime()
     {
