@@ -31,8 +31,9 @@ public class Ball : MonoBehaviour
 
         if(mat == null)
             mat = GetComponent<Material>();
-        
 
+        if (mat == null)
+            mat = gameObject.GetComponent<MeshRenderer>().material;
     }
 
     // Update is called once per frame
@@ -40,8 +41,7 @@ public class Ball : MonoBehaviour
     {
         if (hueShift)
         {
-            if (mat == null)
-                mat = gameObject.GetComponent<MeshRenderer>().material;
+            
 
             nextColor = mat.color;
             Color.RGBToHSV(nextColor, out float Hue, out float Sat, out float Val);

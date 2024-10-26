@@ -147,7 +147,7 @@ public class Club : MonoBehaviour
             }
 
             //hue shifter input
-            if(Input.GetKey(KeyCode.B))
+            if(Input.GetKeyDown(KeyCode.B))
             {
                 if (ball.GetComponent<Ball>().enabled)
                 {
