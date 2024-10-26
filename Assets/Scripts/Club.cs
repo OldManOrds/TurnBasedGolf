@@ -129,10 +129,10 @@ public class Club : MonoBehaviour
         }
 
     }
-    public void Slider()
-    {
-        forceUI.value = str;
-    }
+    //public void Slider()
+    //{
+    //    forceUI.value = str;
+    //}
     public void ResetGauge()
     {
         str = 0f;

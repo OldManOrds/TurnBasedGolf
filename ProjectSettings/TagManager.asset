@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Hole
   - LastHole
+  - Dead
   layers:
   - Default
   - TransparentFX

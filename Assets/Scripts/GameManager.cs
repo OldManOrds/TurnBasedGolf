@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
     private Vector3 timerStartPosition;
     private Vector3 scoreStartPosition;
     public int playerStrokes = 0;
+    
     void Awake()
     {
         if (Instance == null)
@@ -48,6 +50,8 @@ public class GameManager : MonoBehaviour
             //gameOverTimeText = timeTextTMP.GetComponent<TextMeshProUGUI>();
 
         }
+
+
         level.SetActive(false);
         gameOver.SetActive(false);
         //startScreen.SetActive(false);
@@ -71,7 +75,7 @@ public class GameManager : MonoBehaviour
             }
         }
         scoreText.text = "Strokes: " + playerStrokes;
-        if(Input.GetKeyDown(KeyCode.R)) {NextLevel(); }
+        if(Input.GetKeyDown(KeyCode.R)) {LastLevel(); }
     }
     void DisplayTime(float timeDisplay)
     {
@@ -98,15 +102,39 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
-    public void NextLevel()
+    public void LastLevel()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         Time.timeScale = 0;
         startScreen.SetActive(false);
         level.SetActive(false);
         gameOver.SetActive(true);
         timer.transform.position = new Vector3(550, 250,0);
         score.transform.position = new Vector3(450, 200, 0);
+    }
+    public void StartTime()
+    {
+        Time.timeScale = 1;
+        timeTaken = 0f;
+    }
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        
+        //Time.timeScale = 1;
+        timer.GetComponent<TextMeshProUGUI>().enabled = true;
+        score.GetComponent<TextMeshProUGUI>().enabled = true;
+        timer.transform.position = timerStartPosition;
+        score.transform.position = scoreStartPosition;
+        //playerStrokes = 0;
+        //timeTaken = 0f;
+        level.SetActive(true);
+        gameOver.SetActive(false);
+        startScreen.SetActive(false);
+    }
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void MainMenu()
     {

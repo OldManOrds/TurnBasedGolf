@@ -25,14 +25,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2570342223792458913}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.36998695, y: 0.0036858402, z: -0.0014678912, w: 0.9290285}
-  m_LocalPosition: {x: -0.09499025, y: 11.332753, z: -11.97112}
+  m_LocalRotation: {x: 0.27075407, y: 0.003819172, z: -0.0010741876, w: 0.9626404}
+  m_LocalPosition: {x: -0.09498978, y: 7.3127527, z: -11.971123}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1476728395016003005}
   m_Father: {fileID: 702440978104363505}
-  m_LocalEulerAnglesHint: {x: 43.43, y: 0.49, z: 0}
+  m_LocalEulerAnglesHint: {x: 43.43, y: 0.41, z: 0}
 --- !u!114 &5505334035947687498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damping: {x: 0.1, y: 8.93, z: 0.3}
-  ShoulderOffset: {x: -0.48, y: 7.22, z: -8.97}
+  ShoulderOffset: {x: -0.48, y: 3.2, z: -8.97}
   VerticalArmLength: 0.4
   CameraSide: 1
   CameraDistance: 2
@@ -179,7 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 702440978104363505}
   m_Layer: 0
-  m_Name: Ball&Club
+  m_Name: BallnClub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -219,7 +219,7 @@ PrefabInstance:
     - target: {fileID: 5801818732174907345, guid: 67527aad6328b7a478cb9e8e76468317,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 2894
+      value: 2918
       objectReference: {fileID: 0}
     - target: {fileID: 8507163146826897984, guid: 67527aad6328b7a478cb9e8e76468317,
         type: 3}
@@ -348,7 +348,7 @@ PrefabInstance:
     - target: {fileID: 6807899884427912110, guid: cc813112fb276d34db09c9e8dafc8831,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 2876
+      value: 2900
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

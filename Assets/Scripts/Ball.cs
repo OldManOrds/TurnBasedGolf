@@ -9,6 +9,7 @@ public class Ball : MonoBehaviour
     Vector3 Direction;
     float Magnitude;
     public float stoppingVel = .05f;
+    //public SpawnManager spawnManager;
 
     // Start is called before the first frame update
     void Start()
@@ -47,12 +48,18 @@ public class Ball : MonoBehaviour
     {
         if (other.CompareTag("Hole"))
         {
+            GameManager.Instance.NextLevel();
+            //stoppingVel = 0f;
             // logic to send balland club to next course
         }
         if (other.CompareTag("LastHole"))
         {
             Debug.Log("HOLE");
-            GameManager.Instance.NextLevel();
+            GameManager.Instance.LastLevel();
+        }
+        if (other.CompareTag("Dead"))
+        {
+            GameManager.Instance.ReloadScene();
         }
 
     }
