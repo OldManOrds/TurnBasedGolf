@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
         timeDisplay++;
         float minutes = Mathf.FloorToInt(timeDisplay / 60);
         float seconds = Mathf.FloorToInt(timeDisplay % 60);
-        timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        timeText.text = string.Format("Time: "+"{0:00}:{1:00}", minutes, seconds);
     }
     public void Reset()
     {
@@ -97,8 +97,6 @@ public class GameManager : MonoBehaviour
         score.transform.position = scoreStartPosition;
         playerStrokes = 0;
         timeTaken = 0f;
-        //inventory.Remove();
-        //level.SetActive(true);
         InventoryUI.SetActive(false);
         InventoryUI.SetActive(true);
         gameOver.SetActive(false);
@@ -113,11 +111,10 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         Time.timeScale = 0;
         startScreen.SetActive(false);
-        //level.SetActive(false);
         gameOver.SetActive(true);
         InventoryUI.SetActive(true);
-        timer.transform.position = new Vector3(650, 350,0);
-        score.transform.position = new Vector3(600, 300, 0);
+        //timer.transform.position = new Vector3(650, 350,0);
+        //score.transform.position = new Vector3(600, 300, 0);
     }
     public void StartTime()
     {
@@ -128,14 +125,10 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         
-        //Time.timeScale = 1;
         timer.GetComponent<TextMeshProUGUI>().enabled = true;
         score.GetComponent<TextMeshProUGUI>().enabled = true;
         timer.transform.position = timerStartPosition;
         score.transform.position = scoreStartPosition;
-        //playerStrokes = 0;
-        //timeTaken = 0f;
-        //level.SetActive(true);
         InventoryUI.SetActive(true);
         gameOver.SetActive(false);
         startScreen.SetActive(false);
@@ -149,7 +142,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
         Time.timeScale = 0;
         startScreen.SetActive(true);
-        //level.SetActive(false);
         InventoryUI.SetActive(false);
         gameOver.SetActive(false);
     }

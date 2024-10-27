@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -17,6 +19,7 @@ public class InventoryManager : MonoBehaviour
     {
         Inventory.OnInventoryChange -= DrawInventory;
     }
+        
     void ResetInventory()
     {
         foreach (Transform childTransform in transform)
@@ -52,9 +55,5 @@ public class InventoryManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

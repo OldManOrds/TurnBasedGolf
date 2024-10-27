@@ -11,6 +11,10 @@ public class InventorySlot : MonoBehaviour
     public TextMeshProUGUI labelText;
     public TextMeshProUGUI stackSizeText;
 
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Q)) { ClearSlot(); }
+    }
     public void ClearSlot()
     {
         icon.enabled = false;
